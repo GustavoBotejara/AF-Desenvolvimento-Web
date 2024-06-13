@@ -1,0 +1,43 @@
+<div class="content">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Editar Paciente</h4>
+      <label for="select">Selecione o Veículo para Edição</label>
+      <select id="select" class="form-select" aria-label="Default select example" [(ngModel)]="pacienteSelecionadoId"
+        (ngModelChange)="obterPacientePorId($event)">
+        <option value="">-</option>
+        @for (paciente of listaPacientes; track paciente.id) {
+        <option [value]="paciente._id">{{ paciente.nome}} - {{ paciente.plano }} ({{ paciente.idade }}) </option>
+        } @empty {
+        <option value="">Nenhum veículo cadastrado</option>
+        }
+      </select>
+      <br>
+      @if (pacienteSelecionadoId) {
+      <form #myForm="ngForm" (ngSubmit)="editarPaciente(myForm)">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Nome</span>
+          <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" aria-label="Nome"
+            aria-describedby="basic-addon1" ngModel required [(ngModel)]="pacienteSelecionado.nome">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Plano</span>
+          <input type="text" class="form-control" id="plano" name="plano" placeholder="Plano" aria-label="Plano"
+            aria-describedby="basic-addon1" ngModel required [(ngModel)]="pacienteSelecionado.plano">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Idade</span>
+          <input type="number" class="form-control" id="idade" name="idade" placeholder="Idade" aria-label="Idade"
+            aria-describedby="basic-addon1" ngModel required [(ngModel)]="pacienteSelecionado.idade">
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-lg">Editar</button>
+          </div>
+        </div>
+      </form>
+      }
+    </div>
+  </div>
+</div>

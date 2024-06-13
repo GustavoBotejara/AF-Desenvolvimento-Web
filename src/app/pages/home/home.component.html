@@ -1,0 +1,22 @@
+<div class="content">
+  <div class="card">
+    <div class="card-body">
+      <ul class="list-group">
+        <h4 class="card-title">Pacientes Cadastrados</h4>
+        @for (paciente of listaPacientes; track paciente.id) {
+        <li class="list-group-item">
+          <div class="list-item">
+            {{ paciente.nome }} ({{ paciente.idade }} anos) - {{ paciente.plano }} = {{ porcentagemPaciente(paciente)
+            }}
+            <button type="button" class="btn btn-danger" (click)="onClickExcluir(paciente)">Excluir</button>
+          </div>
+        </li>
+        } @empty {
+        <li class="list-group-item">
+          <p>Nenhum paciente cadastrado</p>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

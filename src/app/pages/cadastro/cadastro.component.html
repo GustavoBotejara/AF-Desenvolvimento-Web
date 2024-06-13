@@ -1,0 +1,30 @@
+<div class="content">
+  <div class="card">
+    <div class="card-body">
+      <form #myForm="ngForm" (ngSubmit)="cadastrarPaciente(myForm)">
+        <h4 class="card-title">Cadastrar Paciente</h4>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Nome</span>
+          <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" aria-label="Nome"
+            aria-describedby="basic-addon1" ngModel required>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Plano</span>
+          <input type="text" class="form-control" id="plano" name="plano" placeholder="Plano" aria-label="Plano"
+            aria-describedby="basic-addon1" ngModel required>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Idade</span>
+          <input type="number" class="form-control" id="idade" name="idade" placeholder="Idade"
+            aria-label="Ano Fabricacao" aria-describedby="basic-addon1" ngModel required>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
