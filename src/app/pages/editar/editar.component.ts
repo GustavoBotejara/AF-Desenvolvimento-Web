@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
+
 import { PacientesService } from '../../api/pacientes.service';
 import { Paciente } from '../../api/paciente';
 
@@ -16,9 +16,8 @@ export class EditarComponent implements OnInit {
   inscricao: Subscription = new Subscription();
   pacienteSelecionadoId: any;
   pacienteSelecionado: any;
-  teste: boolean = true;
 
-  constructor(private service: PacientesService, private router: Router) {}
+  constructor(private service: PacientesService) {}
 
   ngOnInit(): void {
     this.obterPacientes();
@@ -27,7 +26,6 @@ export class EditarComponent implements OnInit {
   obterPacientes(): void {
     this.inscricao = this.service.obterPacientes().subscribe((pacientes) => {
       this.listaPacientes = pacientes;
-      this.teste = true;
     });
   }
 
@@ -56,11 +54,10 @@ export class EditarComponent implements OnInit {
     };
 
     this.service.editarPaciente(request).subscribe(() => {
-      alert('Editação realizada com sucesso');
+      alert('Paciente editado com sucesso');
       form.reset();
       this.pacienteSelecionadoId = '';
       this.pacienteSelecionado = null;
-      this.teste = false;
       this.obterPacientes();
     });
   }

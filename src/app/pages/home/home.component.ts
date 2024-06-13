@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  // TODO:: Mudar para porcentagem
   porcentagemPaciente(paciente: any): string {
     if (paciente.idade <= 60) {
       return '3%';
