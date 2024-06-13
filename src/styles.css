@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.card-body {
+  width: 40vw;
+}

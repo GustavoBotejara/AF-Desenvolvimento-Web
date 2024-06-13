@@ -6,8 +6,7 @@
         @for (paciente of listaPacientes; track paciente.id) {
         <li class="list-group-item">
           <div class="list-item">
-            {{ paciente.nome }} ({{ paciente.idade }} anos) - {{ paciente.plano }} = {{ porcentagemPaciente(paciente)
-            }}
+            {{ paciente.nome }} ({{ paciente.idade }} anos) - {{ paciente.plano }} ({{ porcentagemPaciente(paciente) }})
             <button type="button" class="btn btn-danger" (click)="onClickExcluir(paciente)">Excluir</button>
           </div>
         </li>
